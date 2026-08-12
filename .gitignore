@@ -11,6 +11,9 @@ config/mercadopago.js
 .env.local
 .env.production
 
+# Documentos markdown (evidencias, informes, guiones)
+*.md
+
 # Logs
 *.log
 npm-debug.log*
