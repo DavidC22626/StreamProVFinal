@@ -1,0 +1,228 @@
+/* ===== Reset básico ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgb(25, 25, 25);
+    font-family: "Segoe UI", sans-serif;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* ===== Tarjeta principal ===== */
+.container {
+    transform: scale(1.75); /* Ajusta el tamaño general */
+    transform-origin: center;
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+}
+
+.card {
+    background: rgba(40, 40, 40, 0.85);
+    padding: 40px 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px #b2f6;
+    text-align: center;
+}
+
+/* ===== Logo redondo ===== */
+.logo-wrapper {
+    width: 120px;
+    height: 120px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    background: url("../img/logo.jpeg") center / cover;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #b2f6;
+}
+
+/* ===== Título ===== */
+h1 {
+    margin-bottom: 25px;
+    font-size: 34px;
+    font-weight: 600;
+    text-shadow: 0 0 5px #b2f;
+}
+
+/* ===== Mensaje ===== */
+p {
+    padding-bottom: 20px;
+    color: red;
+}
+
+/* ===== Inputs ===== */
+.input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: 1px solid #b2f;
+    border-radius: 12px;
+    color: #fff;
+    padding: 0 15px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input:focus {
+    box-shadow: 0 0 10px #b2f6;
+}
+
+/* ===== Opciones ===== */
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.admin input {
+    margin-right: 8px;
+}
+
+/* ===== Botón ===== */
+.btn {
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: 1px solid #b2f;
+    color: #fff;
+    font-size: 17px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    box-shadow: 0 0 12px #b2f6;
+    transform: scale(1.03);
+}
+
+/* ===== Enlaces ===== */
+.links {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.links a {
+    color: #31bad8;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.links a:hover {
+    text-shadow: 0 0 8px #31bad8;
+}
+
+/* ===== Responsive ===== */
+/* ===== TELÉFONOS ===== */
+@media (max-width: 480px) {
+
+    body {
+        padding: 20px 0;
+    }
+
+    .container {
+        width: 95%;
+        max-width: none;
+    }
+
+    .card {
+        width: 100%;
+        padding: 40px 22px;
+        border-radius: 18px;
+    }
+
+    .logo-wrapper {
+        width: 150px;
+        height: 150px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    .input {
+        height: 55px;
+        font-size: 18px;
+    }
+
+    .btn {
+        height: 50px;
+        font-size: 18px;
+    }
+}
+
+/* ===== TABLETS ===== */
+@media (min-width: 481px) and (max-width: 768px) {
+    
+    .container {
+        transform: scale(1.75); /* Ajusta el tamaño general */
+        transform-origin: center;
+        width: 90%;
+    }
+
+    .card {
+        padding: 45px 30px;
+    }
+
+    .logo-wrapper {
+        width: 140px;
+        height: 140px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+    
+    .input {
+        height: 52px;
+        font-size: 17px;
+    }
+
+    .btn {
+        height: 48px;
+        font-size: 17px;
+    }
+}
+
+/* ===== ESCRITORIO ===== */
+@media (min-width: 769px) {
+
+    .container {
+        transform: scale(1.15); /* Ajusta el tamaño general */
+        transform-origin: center;
+        max-width: 450px;
+    }
+
+    .card {
+        padding: 50px 35px;
+    }
+
+    .logo-wrapper {
+        width: 130px;
+        height: 130px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+}
+
+
+

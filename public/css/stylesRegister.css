@@ -1,0 +1,220 @@
+/* ===== Reset básico ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgb(25, 25, 25);
+    font-family: "Segoe UI", sans-serif;
+    color: #fff;
+    min-height: 100vh;
+
+    /* CLAVE PARA CENTRAR */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* MARGEN IGUAL EN TODOS LOS LADOS */
+    padding: 20px;
+}
+
+/* ===== Tarjeta principal ===== */
+.container {
+    width: 100%;
+    max-width: 450px;
+    background: rgba(40, 40, 40, 0.9);
+    border-radius: 18px;
+    padding-bottom: 30px;
+    box-shadow: 0 0 50px #b2f6;
+}
+
+/* ===== Encabezado con fondo del logo ===== */
+.fondoLogo {
+    width: 100%;
+    height: 180px;
+    background-color: #b2f6;
+    border-radius: 18px 18px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== Logo redondeado ===== */
+.logo {
+    width: 120px;
+    height: 120px;
+    background: url("../img/logo.jpeg") center / cover;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #000;
+}
+
+/* ===== Contenido principal ===== */
+.Registro {
+    text-align: center;
+    padding: 25px;
+}
+
+/* ===== Título ===== */
+h1 {
+    font-size: 38px;
+    font-weight: 600;
+    text-shadow: 0 0 6px #b2f;
+    margin-bottom: 25px;
+    margin-top: 10px;
+}
+
+p {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: red;
+}
+
+/* ===== Inputs ===== */
+input {
+    width: 90%;
+    height: 50px;
+    background: transparent;
+    border: 1px solid #b2f;
+    border-radius: 14px;
+    color: #fff;
+    padding: 0 15px;
+    font-size: 17px;
+    margin-bottom: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    box-shadow: 0 0 10px #b2f;
+}
+
+/* ===== Checkbox ===== */
+.check {
+    width: 14px;
+    height: 14px;
+    margin-right: 5px;
+}
+
+/* ===== Botón registrarse ===== */
+.btnRegistrar {
+    width: 90%;
+    height: 52px;
+    background: transparent;
+    border: 1px solid #b2f;
+    border-radius: 14px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.btnRegistrar:hover {
+    box-shadow: 0 0 12px #b2f6;
+    transform: scale(1.03);
+}
+
+/* ===== Contenedor del checkbox ===== */
+.contenedorCheck {
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+/* ===== Enlaces ===== */
+a {
+    color: #31bad8;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+a:hover {
+    text-shadow: 0 0 8px #31bad8;
+}
+
+/* =======================================================
+ MEDIA QUERIES PARA 3 TIPOS DE PANTALLAS
+======================================================= */
+
+/* ===== TELÉFONOS ===== */
+@media (max-width: 480px) {
+
+    body {
+        padding: 15px 0;
+    }
+
+    .container {
+        width: 95%;
+        max-width: none;
+    }
+
+    .fondoLogo {
+        height: 170px;
+    }
+
+    .logo {
+        width: 140px;
+        height: 140px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    input {
+        height: 55px;
+        font-size: 18px;
+    }
+
+    .btnRegistrar {
+        height: 55px;
+        font-size: 19px;
+    }
+}
+
+/* ===== TABLETS ===== */
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .container {
+        width: 80%;
+    }
+
+    .logo {
+        width: 130px;
+        height: 130px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    input {
+        height: 52px;
+        font-size: 17px;
+    }
+
+    .btnRegistrar {
+        height: 50px;
+        font-size: 18px;
+    }
+}
+
+/* ===== ESCRITORIO ===== */
+@media (min-width: 769px) {
+
+    .container {
+        transform: scale(0.95); /* Ajusta el tamaño general */
+        transform-origin: center;
+        max-width: 500px;
+    }
+
+    .logo {
+        width: 120px;
+        height: 120px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+}

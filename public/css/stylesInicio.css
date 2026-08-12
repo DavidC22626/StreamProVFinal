@@ -1,0 +1,378 @@
+/* ------------------------- RESET ---------------------------- */
+*{
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: rgb(20, 20, 20);
+    color: #fff;
+}
+
+/* ------------------------- HEADER ---------------------------- */
+.header{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: radial-gradient(circle at top, #b2f6 0%, rgba(25, 0, 40, 0.85) 40%, rgb(15, 10, 20) 100%);
+    background-size: cover;
+    background-position: center;
+    padding: 10px 8%;
+    box-shadow: 0 0 50px #b2f6;
+}
+
+/* NAV */
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.logo{
+    width: 150px;
+    filter: drop-shadow(0 0 10px #b2f6);
+    cursor: pointer;
+}
+
+/* NAV Buttons */
+nav button{
+    border: 1px solid #b2f;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 7px 20px;
+    margin-left: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #b2f6;
+    transition: 0.3s ease;
+}
+nav button:hover{
+    background: rgba(178, 47, 255, 0.3);
+}
+
+/* HEADER CONTENT */
+.contenido-headder{
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/* Titles */
+.contenido-headder h1{
+    font-size: 60px;
+    font-weight: 600;
+    max-width: 700px;
+    line-height: 70px;
+    text-shadow: 0 0 15px #b2f6;
+}
+.contenido-headder h3 {
+    font-weight: 400;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #b2f6;
+}
+
+/* Email Input Box */
+.entrada-mail{
+    background: rgba(255, 255, 255, 0.07);
+    display: flex;
+    border: 1px solid #b2f;
+    border-radius: 8px;
+    align-items: center;
+    margin-top: 30px;
+    overflow: hidden;
+    box-shadow: 0 0 15px #b2f6;
+}
+.entrada-mail input{
+    flex: 1;
+    border: 0;
+    outline: 0;
+    padding: 15px;
+    background: transparent;
+    color: #fff;
+}
+.entrada-mail input::placeholder{
+    color: #ccc;
+}
+.entrada-mail button{
+    background-color: #b2f;
+    border: 0;
+    outline: 0;
+    color: #fff;
+    font-size: 16px;
+    padding: 15px 30px;
+    cursor: pointer;
+    box-shadow: 0 0 15px #b2f6;
+    transition: 0.3s ease;
+}
+.entrada-mail button:hover{
+    background-color: #d17cff;
+}
+
+/* ------------------------- ELEMENTOS ---------------------------- */
+.elementos{
+    padding: 50px 12%;
+    font-size: 22px;
+}
+.fila{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 50px 0;
+}
+.columna-texto{
+    flex-basis: 50%;
+    margin-bottom: 20px;
+}
+.columna-imagen{
+    flex-basis: 50%;
+    margin-bottom: 20px;
+}
+.columna-imagen img{
+    display: block;
+    height: auto;
+    width: 90%;
+    margin: auto;
+    filter: drop-shadow(0 0 20px #b2f6);
+}
+.elementos h2{
+    font-size: 50px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #b2f6;
+}
+.elementos p{
+    color: #ddd;
+}
+
+/* Imagen 4 */
+img[alt="imagen4"]{
+    width: 70%;
+    max-width: 500px;
+}
+
+/* ------------------------- FAQ ---------------------------- */
+.faq{
+    padding: 10px 12%;
+    text-align: center;
+    font-size: 18px;
+}
+.faq h2{
+    font-size: 40px;
+    text-shadow: 0 0 10px #b2f6;
+}
+.acordeon{
+    margin: 60px auto;
+    width: 100%;
+    max-width: 750px;
+}
+.acordeon li{
+    list-style: none;
+    width: 100%;
+    padding: 5px;
+}
+.acordeon li label{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 2px;
+    cursor: pointer;
+    position: relative;
+    border: 1px solid #b2f;
+    border-radius: 6px;
+    box-shadow: 0 0 10px #b2f6;
+}
+label::after{
+    content: '+';
+    font-size: 34px;
+    position: absolute;
+    right: 25px;
+    transition: transform 0.5s;
+}
+
+/* FAQ Hidden Radio Buttons */
+input[type="radio"]{
+    display: none;
+}
+
+.acordeon .contenido{
+    background: rgba(255, 255, 255, 0.05);
+    text-align: left;
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    border-radius: 6px;
+    transition: max-height 0.5s, padding 0.5s;
+    border: 1px solid transparent;
+}
+
+.acordeon input[type="radio"]:checked + label + .contenido{
+    max-height: 800px;
+    padding: 30px 30px;
+    border: 1px solid #b2f;
+    box-shadow: 0 0 15px #b2f6;
+}
+.acordeon input[type="radio"]:checked + label::after{
+    transform: rotate(135deg);
+}
+
+/* FAQ Email */
+.faq .entrada-mail{
+    max-width: 600px;
+    margin: 20px auto 60px;
+}
+.faq small{
+    font-size: 13px;
+    color: #ccc;
+}
+
+/* ------------------------- FOOTER ---------------------------- */
+.footer{
+    padding: 50px 15% 10px;
+    border-top: 2px solid #b2f6;
+    color: #999;
+    background: rgba(0,0,0,0.3);
+    box-shadow: 0 0 40px #b2f6;
+}
+.footer h2{
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #b2f;
+}
+.footer .columna{
+    flex-basis: 25%;
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+.footer .columna a{
+    display: block;
+    text-decoration: none;
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.footer .columna a:hover{
+    color: #fff;
+}
+.footer .fila{
+    align-items: flex-start;
+    padding: 10px 0;
+}
+.footer .idioma{
+    border: 1px solid #b2f;
+    background: transparent;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    box-shadow: 0 0 10px #b2f6;
+}
+
+.texto-copyright{
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.texto-copyright img{
+    width: 20px;
+    height: 20px;
+    padding-left: 5px;
+    position: relative;
+    top: 6px;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .logo{
+        width: 100px;
+    }
+
+    nav button{
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+
+    nav .idioma{
+        padding: 4px 8px;
+    }
+
+    .contenido-headder{
+        position: unset;
+        transform: none;
+        padding-top: 140px;
+        text-align: center;
+    }
+
+    .contenido-headder h1{
+        font-size: 28px;
+        line-height: 35px;
+    }
+
+    .entrada-mail{
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .entrada-mail button{
+        width: 100%;
+        margin-top: 10px;
+        font-size: 14px;
+    }
+
+    .fila{
+        padding: 20px 0;
+    }
+
+    .columna-texto,
+    .columna-imagen{
+        flex-basis: 100%;
+        text-align: center;
+    }
+
+    .elementos h2{
+        font-size: 28px;
+    }
+
+    .elementos p{
+        font-size: 14px;
+    }
+
+    .faq h2{
+        font-size: 22px;
+    }
+
+    .acordeon li label{
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .acordeon .contenido{
+        font-size: 14px;
+    }
+
+    label::after{
+        font-size: 22px;
+    }
+
+    .footer{
+        padding: 40px 10%;
+        text-align: center;
+    }
+
+    .footer .fila{
+        flex-direction: column;
+    }
+
+    .footer .columna{
+        flex-basis: 100%;
+    }
+}

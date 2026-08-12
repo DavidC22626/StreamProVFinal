@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Registro</title>
+    <link rel="stylesheet" href="css/stylesRegister.css">
+</head>
+<body>
+    <div class="container">
+        <div class="fondoLogo">
+            <div class="logo"></div>
+        </div>
+        <div class="Registro">
+            <h1>Registrarse</h1>
+            <form action="/registerUser" method="post">
+                <div class="contenedorNombre">
+                    <input type="text" name="NombreUsuario" id="NombreUsuario" title="Nombre" placeholder="Nombre completo" required>
+                </div>
+                <div class="contenedorPais">
+                    <input type="text" name="Nacionalidad" id="Nacionalidad" title="PaisResidencia" placeholder="País" required>
+                </div>
+                <div class="contenedorTelefono">
+                    <input type="tel" name="numeroTelefonico" id="numeroTelefonico" title="Teléfono" placeholder="Teléfono" required>
+                </div>
+                <div class="contenedorCorreo">
+                    <input type="email" name="Email" id="Email" title="E-mail" placeholder="E-mail" name="Correo" required>
+                </div>
+                <div class="contenedorContraseña">
+                    <input type="password" name="Password" id="Password" title="Password" placeholder="Password" name="Contraseña" required>
+                </div>
+                <div class="contenedorConfirmContraseña">
+                    <input type="password" name="ConfirmPassword" id="ConfirmPassword" title="ConfirmaciónPassword" placeholder="Confirmation Password" name="ConfirmaciónContraseña" required>
+                </div>
+                <div class="contenedorBTNregistrarseYCheck">
+                    <input class="btnRegistrar" type="submit" title="Registrarse" name="Resgistrar" value="Registrarse">
+                    <div class="contenedorCheck">
+                        <input class="check" name="CheckTerminosYCondiciones" id="CheckTerminosYCondiciones" type="checkbox" id="checkAceptarTérminos" title="AceptarTérminosCondiciones" name="TérminosYCondiciones" value="Términos y condiciones" required>
+                        <label for="checkAceptarTérminos">Aceptar términos y condiciones</label>
+                    </div>    
+                </div>
+                <div>
+                    <% if(typeof mensaje != "undefined"){ %>
+                    <p><%= mensaje %></p>
+                    <% } %>
+                </div>
+                <div>
+                    <a href="/login">Cancelar</a>
+                </div>  
+            </form>
+        </div>
+    </div>
+</body>
+</html>

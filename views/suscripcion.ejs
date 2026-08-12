@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Suscripción - StreamPro</title>
+    <link rel="stylesheet" href="css/stylesSuscripcion.css">
+</head>
+<body>
+    <div class="container">
+        <div class="fondoLogo">
+            <div class="logo"></div>
+        </div>
+        <div class="AvtivarPremium">
+            <h1>Activar Premium</h1>
+            <p class="descripcion">Desbloquea todo el contenido exclusivo por solo $13.000/mes</p>
+            
+            <div class="plan-unico">
+                <div class="plan" data-plan="premium" data-precio="13000">
+                    <h2>Plan Premium</h2>
+                    <p class="precio">$13.000<span>/mes</span></p>
+                    <ul class="caracteristicas">
+                        <li>✓ Acceso a todo el contenido</li>
+                        <li>✓ Calidad HD y 4K</li>
+                        <li>✓ Sin anuncios</li>
+                        <li>✓ Hasta 2 dispositivos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="mensaje" class="mensaje"></div>
+            
+            <button id="btnPagar" class="btnActivar">Activar Premium por $13.000</button>
+        </div>
+    </div>
+
+    <script>
+        const btnPagar = document.getElementById('btnPagar');
+        const mensaje = document.getElementById('mensaje');
+        const plan = document.querySelector('.plan');
+        
+        const planSeleccionado = {
+            nombre: plan.dataset.plan,
+            precio: parseFloat(plan.dataset.precio)
+        };
+
+        btnPagar.addEventListener('click', async () => {
+            btnPagar.disabled = true;
+            btnPagar.textContent = 'Procesando...';
+
+            try {
+                const response = await fetch('/crear-suscripcion', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: '<%= typeof session !== "undefined" && session.correoUser ? session.correoUser : "cliente@ejemplo.com" %>',
+                        plan: planSeleccionado.nombre,
+                        precio: planSeleccionado.precio,
+                        userId: '<%= typeof session !== "undefined" && session.codUser ? session.codUser : "" %>'
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success && data.init_point) {
+                    window.location.href = data.init_point;
+                } else {
+                    mensaje.textContent = 'Error: ' + (data.message || 'Intenta de nuevo');
+                    mensaje.className = 'mensaje error mostrar';
+                    btnPagar.disabled = false;
+                    btnPagar.textContent = 'Reintentar';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                mensaje.textContent = 'Error de conexión';
+                mensaje.className = 'mensaje error mostrar';
+                btnPagar.disabled = false;
+                btnPagar.textContent = 'Reintentar';
+            }
+        });
+    </script>
+</body>
+</html>

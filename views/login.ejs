@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="css/stylesLogin.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="logo-wrapper">
+                <div class="logo"></div>
+            </div>
+
+            <h1>Iniciar Sesión</h1>
+                <% if(typeof mensaje != "undefined"){ %>
+                    <p><%= mensaje %></p>
+                <% } %>
+            <form id="loginForm">
+                <input class="input" type="email" placeholder="E-mail" id="campoCorreo" title="E-mail" name="campoCorreo" required>
+                <input class="input" type="password" placeholder="Password" id="campoPassword" title="Password" name="campoPassword" required>
+
+                <div class="options">
+                    <label class="admin">
+                        <input type="checkbox" id="adminCheck" title="Administrador"> Administrador
+                    </label>
+                </div>
+
+                <button type="submit" class="btn" title="Ingresar" name="Ingresar">Ingresar</button>
+
+                <div class="links">
+                    <a href="/recuperarPassword">¿Olvidaste tu contraseña?</a>
+                    <a href="/registerUser">Registrarse</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="/js/loginfuncionalidad.js"></script>
+</body>
+</html>

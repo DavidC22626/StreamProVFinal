@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StreamPro</title>
+    <link rel="stylesheet" href="css/stylesHome.css" />
+  </head>
+
+  <body>
+    <header id="header">
+      <div class="nav-container">
+        <div style="display: flex; align-items: center; gap: 40px">
+          <div class="logo">StreamPro</div>
+          <ul class="nav-links">
+            <li>
+              <a href="#" onclick="showSection('home', event)" class="active"
+                >Inicio</a
+              >
+            </li>
+            <li>
+              <a href="#" onclick="showSection('catSeries', event)">Series</a>
+            </li>
+            <li>
+              <a href="#" onclick="showSection('catPeliculas', event)"
+                >Películas</a
+              >
+            </li>
+            <li>
+              <a href="#" onclick="showSection('home', event)">Novedades</a>
+            </li>
+            <li>
+              <a href="#" onclick="showSection('miLista', event)">Mi lista</a>
+            </li>
+            <li id="menuSuscripcion" style="display: none;">
+              <a href="#" onclick="irASuscripcion(event)">Suscripción</a>
+            </li>
+            <li>
+              <div class="dropdown">
+                <button id="btnAdmin" class="nav-button">Administrar</button>
+
+                <div class="dropdown-content">
+                  <button class="admin-option" data-section="generos">
+                    Generos
+                  </button>
+                  <button class="admin-option" data-section="peliculas">
+                    Películas
+                  </button>
+                  <button class="admin-option" data-section="series">
+                    Series
+                  </button>
+                  <button class="admin-option" data-section="usuarios">
+                    Usuarios
+                  </button>
+                  <button class="admin-option" data-section="admins">
+                    Administradores
+                  </button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-right">
+          <div class="search-box">
+            <span class="search-icon">&#128269;</span>
+            <input
+              type="text"
+              placeholder="Títulos, personas, géneros"
+              id="searchInput"
+            />
+          </div>
+          <span style="cursor: pointer">&#128276;</span>
+          <span style="cursor: pointer">&#128100;</span>
+        </div>
+      </div>
+    </header>
+
+    <div id="homeSection">
+      <section class="hero">
+        <div class="hero-content">
+          <h1 class="hero-title">Pelicula 3</h1>
+          <p class="hero-description">
+            Una historia épica que te mantendrá al borde de tu asiento. Descubre
+            el drama, la acción y la emoción en esta producción original que no
+            te puedes perder.
+          </p>
+          <div class="hero-buttons">
+            <button class="btn btn-play" onclick="playVideo('Pelicula 1')">
+              &#9654; Reproducir
+            </button>
+            <button
+              class="btn btn-info"
+              onclick="openModal('Titulo Destacado')"
+            >
+              &#8505; Más información
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div class="content">
+        <div class="row">
+          <h2 class="row-title">Series Populares</h2>
+          <div class="row-container">
+            <button class="scroll-btn left" onclick="scrollRow(this, 'left')">
+              &#8249;
+            </button>
+            <div class="row-posters" id="seriesCarousel"></div>
+            <button class="scroll-btn right" onclick="scrollRow(this, 'right')">
+              &#8250;
+            </button>
+          </div>
+        </div>
+
+        <div class="row">
+          <h2 class="row-title">Tendencias ahora</h2>
+          <div class="row-container">
+            <button class="scroll-btn left" onclick="scrollRow(this, 'left')">
+              &#8249;
+            </button>
+            <div class="row-posters" id="row1"></div>
+            <button class="scroll-btn right" onclick="scrollRow(this, 'right')">
+              &#8250;
+            </button>
+          </div>
+        </div>
+
+        <div class="row">
+          <h2 class="row-title">Top 10 en tu país</h2>
+          <div class="row-container">
+            <button class="scroll-btn left" onclick="scrollRow(this, 'left')">
+              &#8249;
+            </button>
+            <div class="row-posters" id="row2"></div>
+            <button class="scroll-btn right" onclick="scrollRow(this, 'right')">
+              &#8250;
+            </button>
+          </div>
+        </div>
+
+        <div class="row">
+          <h2 class="row-title">Acción y aventura</h2>
+          <div class="row-container">
+            <button class="scroll-btn left" onclick="scrollRow(this, 'left')">
+              &#8249;
+            </button>
+            <div class="row-posters" id="row3"></div>
+            <button class="scroll-btn right" onclick="scrollRow(this, 'right')">
+              &#8250;
+            </button>
+          </div>
+        </div>
+
+        <div class="row">
+          <h2 class="row-title">Comedias</h2>
+          <div class="row-container">
+            <button class="scroll-btn left" onclick="scrollRow(this, 'left')">
+              &#8249;
+            </button>
+            <div class="row-posters" id="row4"></div>
+            <button class="scroll-btn right" onclick="scrollRow(this, 'right')">
+              &#8250;
+            </button>
+          </div>
+        </div>
+
+        <div class="row">
+          <h2 class="row-title">Documentales</h2>
+          <div class="row-container">
+            <button class="scroll-btn left" onclick="scrollRow(this, 'left')">
+              &#8249;
+            </button>
+            <div class="row-posters" id="row5"></div>
+            <button class="scroll-btn right" onclick="scrollRow(this, 'right')">
+              &#8250;
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="footer-content">
+          <div class="footer-links">
+            <div>
+              <a href="#">Preguntas frecuentes</a>
+              <a href="#">Relaciones con inversionistas</a>
+              <a href="#">Formas de ver</a>
+              <a href="#">Información corporativa</a>
+            </div>
+            <div>
+              <a href="#">Centro de ayuda</a>
+              <a href="#">Empleo</a>
+              <a href="#">Términos de uso</a>
+              <a href="#">Contáctanos</a>
+            </div>
+            <div>
+              <a href="#">Cuenta</a>
+              <a href="#">Canjear tarjetas de regalo</a>
+              <a href="#">Privacidad</a>
+              <a href="#">Prueba de velocidad</a>
+            </div>
+            <div>
+              <a href="#">Prensa</a>
+              <a href="#">Comprar tarjetas de regalo</a>
+              <a href="#">Preferencias de cookies</a>
+              <a href="#">Avisos legales</a>
+            </div>
+          </div>
+          <p class="footer-copy">
+            © 2025 StreamPro. Este es un proyecto de demostración educativo.
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- PANEL PRINCIPAL DE PELICULAS -->
+    <div class="admin-panel" id="adminSection">
+      <div class="admin-header">
+        <h1>Administrar Películas</h1>
+        <button class="btn-add" onclick="openAddModal()">
+          + Agregar Película
+        </button>
+      </div>
+
+      <div class="admin-search">
+        <input
+          type="text"
+          id="adminSearchInput"
+          placeholder="Buscar película..."
+          onkeyup="filterMovies()"
+        />
+      </div>
+
+      <div class="movies-table">
+        <div class="table-header header-peliculas">
+          <div>Imagen</div>
+          <div>Título</div>
+          <div>Categoría</div>
+          <div>Año</div>
+          <div>Acciones</div>
+        </div>
+        <div id="moviesTableBody"></div>
+      </div>
+    </div>
+
+    <!-- PANEL PRINCIPAL DE SERIES -->
+    <div class="admin-panel" id="seriesSection">
+      <div class="admin-header">
+        <h1>Administrar Series</h1>
+        <button class="btn-add" onclick="openAddSeriesModal()">
+          + Agregar Serie
+        </button>
+      </div>
+
+      <div class="admin-search">
+        <input
+          type="text"
+          id="seriesSearchInput"
+          placeholder="Buscar serie..."
+        />
+      </div>
+
+      <div class="series-table">
+        <div class="table-header header-series">
+          <div>Imagen</div>
+          <div>Título</div>
+          <div>Categoría</div>
+          <div>Año</div>
+          <div>Acciones</div>
+        </div>
+        <div id="seriesTableBody"></div>
+      </div>
+    </div>
+
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">×</button>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <p class="modal-description">
+          Esta es una descripción detallada del contenido seleccionado. Aquí
+          podrías ver información sobre el elenco, director, año de producción y
+          un resumen más completo de la trama.
+        </p>
+        <div class="modal-info">
+          <span>&#11088; 8.5/10</span>
+          <span>&#128336; 2h 15m</span>
+          <span>&#128197; 2024</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL CRUD PELICULAS -->
+    <div class="modal" id="crudModal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeCrudModal()">×</button>
+        <h2 class="modal-title" id="crudModalTitle">Agregar Película</h2>
+
+        <form id="movieForm" onsubmit="saveMovie(event)">
+          <!--<input type="hidden" id="movieId">-->
+
+          <div class="form-group">
+            <label for="movieTitle">Título *</label>
+            <input type="text" id="movieTitle" required />
+          </div>
+
+          <div class="form-group">
+            <label for="movieCategory">Categoría *</label>
+            <select id="movieCategory" required>
+              <option value="">Seleccionar categoría</option>
+              <option value="row1">Tendencias ahora</option>
+              <option value="row2">Top 10</option>
+              <option value="row3">Acción</option>
+              <option value="row4">Comedia</option>
+              <option value="row5">Documentales</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="movieYear">Año *</label>
+            <input
+              type="number"
+              id="movieYear"
+              min="1900"
+              max="2030"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="movieDuration">Duración (min) *</label>
+            <input
+              type="number"
+              id="movieDuration"
+              min="40"
+              max="240"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="movieDirector">Director *</label>
+            <input type="text" id="movieDirector" required />
+          </div>
+
+          <div class="form-group">
+            <label for="movieImage">Ruta de Imagen *</label>
+            <input
+              type="text"
+              id="movieImage"
+              placeholder="imagenes/peliculas/pelicula.jpg"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="movieVideo">Ruta de Video *</label>
+            <input
+              type="text"
+              id="movieVideo"
+              placeholder="videos/peliculas/pelicula.mp4"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="movieDescription">Descripción</label>
+            <textarea
+              id="movieDescription"
+              placeholder="Descripción opcional de la película"
+            ></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-save">Guardar</button>
+            <button type="button" class="btn-cancel" onclick="closeCrudModal()">
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- MODAL CRUD SERIES -->
+    <div class="modal" id="seriesCrudModal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeSeriesCrudModal()">×</button>
+        <h2 class="modal-title" id="seriesCrudModalTitle">Agregar Serie</h2>
+
+        <form id="seriesForm" onsubmit="saveSerie(event)">
+          <div class="form-group">
+            <label for="seriesTitle">Título *</label>
+            <input type="text" id="seriesTitle" required />
+          </div>
+
+          <div class="form-group">
+            <label for="seriesCategory">Categoría *</label>
+            <select id="seriesCategory" required>
+              <option value="">Seleccionar categoría</option>
+              <option value="row1">Tendencias ahora</option>
+              <option value="row2">Top 10</option>
+              <option value="row3">Acción</option>
+              <option value="row4">Comedia</option>
+              <option value="row5">Documentales</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="seriesYear">Año *</label>
+            <input
+              type="number"
+              id="seriesYear"
+              min="1900"
+              max="2030"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="seriesCreador">Director *</label>
+            <input type="text" id="seriesCreador" required />
+          </div>
+
+          <div class="form-group">
+            <label for="seriesImage">Ruta de Imagen *</label>
+            <input
+              type="text"
+              id="seriesImage"
+              placeholder="imagenes/series/serie.jpg"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="seriesDescription">Descripción</label>
+            <textarea
+              id="seriesDescription"
+              placeholder="Descripción opcional de la serie"
+            ></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-save">Guardar</button>
+            <button
+              type="button"
+              class="btn-cancel"
+              onclick="closeSeriesCrudModal()"
+            >
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- MODAL TEMPORADAS (NIVEL 2) -->
+    <div class="modal" id="seasonsModal">
+      <div class="modal-content modal-large-temporadas">
+        <button class="modal-close" onclick="closeSeasonsModal()">×</button>
+        <div class="modal-header">
+          <h2>Administrar Temporadas</h2>
+          <button class="btn-add" onclick="openAddSeasonModal()">
+            + Agregar Temporada
+          </button>
+        </div>
+
+        <div class="temporadas-table">
+          <div class="table-header header-temporadas">
+            <div>Capítulos</div>
+            <div>Título</div>
+            <div>Año</div>
+            <div>Acciones</div>
+          </div>
+          <div id="seasonsTableBody"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL CRUD TEMPORADAS -->
+    <div class="modal" id="seasonCrudModal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeSeasonCrudModal()">×</button>
+        <h2 class="modal-title" id="seasonCrudModalTitle">Agregar Temporada</h2>
+
+        <form id="seasonForm" onsubmit="saveSeason(event)">
+          <div class="form-group">
+            <label for="seasonNumber">Número de capitulos *</label>
+            <input type="number" id="seasonNumber" min="1" required />
+          </div>
+
+          <div class="form-group" id="group-titulo-tem">
+            <label for="tituloTemporada">Título</label>
+            <input type="text" id="tituloTemporada" />
+          </div>
+
+          <div class="form-group">
+            <label for="seasonYear">Año de Lanzamiento</label>
+            <input type="number" id="seasonYear" min="1900" max="2030" />
+          </div>
+
+          <div class="form-group">
+            <label for="seasonDescription">Descripción</label>
+            <textarea
+              id="seasonDescription"
+              placeholder="Descripción de la temporada"
+            ></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-save">Guardar</button>
+            <button
+              type="button"
+              class="btn-cancel"
+              onclick="closeSeasonCrudModal()"
+            >
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- MODAL CAPÍTULOS (NIVEL 3) -->
+    <div class="modal" id="episodesModal">
+      <div class="modal-content modal-large">
+        <button class="modal-close" onclick="closeEpisodesModal()">×</button>
+        <div class="modal-header">
+          <h2>Administrar Capítulos</h2>
+          <button class="btn-add" onclick="openAddEpisodeModal()">
+            + Agregar Capítulo
+          </button>
+        </div>
+
+        <div class="movies-table">
+          <div class="table-header">
+            <div>Nº</div>
+            <div>Título</div>
+            <div>Duración</div>
+            <div>Acciones</div>
+          </div>
+          <div id="episodesTableBody"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL CRUD CAPÍTULOS -->
+    <div class="modal" id="episodeCrudModal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeEpisodeCrudModal()">×</button>
+        <h2 class="modal-title" id="episodeCrudModalTitle">Agregar Capítulo</h2>
+
+        <form id="episodeForm" onsubmit="saveEpisode(event)">
+          <div class="form-group" id="episodeIndice">
+            <label for="episodeNumber">Número de Capítulo *</label>
+            <input type="number" id="episodeNumber" min="1" />
+          </div>
+
+          <div class="form-group">
+            <label for="tituloCap">Título *</label>
+            <input type="text" id="tituloCap" required />
+          </div>
+
+          <div class="form-group">
+            <label for="duracionCap">Duración (minutos) *</label>
+            <input type="number" id="duracionCap" min="10" max="120" required />
+          </div>
+
+          <div class="form-group">
+            <label for="episodeVideo">Ruta de Video *</label>
+            <input
+              type="text"
+              id="episodeVideo"
+              placeholder="videos/series/capitulo.mp4"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="descripCap">Descripción</label>
+            <textarea
+              id="descripCap"
+              placeholder="Descripción del capítulo"
+            ></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-save">Guardar</button>
+            <button
+              type="button"
+              class="btn-cancel"
+              onclick="closeEpisodeCrudModal()"
+            >
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- CATÁLOGO DE PELÍCULAS -->
+    <div id="catalogMovies" class="catalog-section" style="display: none">
+      <div class="catalog-header">
+        <h1>Películas</h1>
+        <div class="catalog-controls">
+          <input
+            type="text"
+            id="moviesSearchCatalog"
+            placeholder="Buscar películas..."
+            class="catalog-search"
+          />
+          <select id="moviesFilterCatalog" class="catalog-filter">
+            <option value="">Todas las categorías</option>
+            <option value="row1">Tendencias ahora</option>
+            <option value="row2">Top 10</option>
+            <option value="row3">Acción</option>
+            <option value="row4">Comedia</option>
+            <option value="row5">Documentales</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="catalog-grid" id="moviesCatalogGrid">
+        <!-- Las películas se cargan aquí -->
+      </div>
+
+      <div class="catalog-empty" id="moviesCatalogEmpty" style="display: none">
+        <p>No se encontraron películas</p>
+      </div>
+    </div>
+
+    <!-- CATÁLOGO DE SERIES -->
+    <div id="catalogSeries" class="catalog-section" style="display: none">
+      <div class="catalog-header">
+        <h1>Series</h1>
+        <div class="catalog-controls">
+          <input
+            type="text"
+            id="seriesSearchCatalog"
+            placeholder="Buscar series..."
+            class="catalog-search"
+          />
+          <select id="seriesFilterCatalog" class="catalog-filter">
+            <option value="">Todas las categorías</option>
+            <option value="row1">Tendencias ahora</option>
+            <option value="row2">Top 10</option>
+            <option value="row3">Acción</option>
+            <option value="row4">Comedia</option>
+            <option value="row5">Documentales</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="catalog-grid" id="seriesCatalogGrid">
+        <!-- Las series se cargan aquí -->
+      </div>
+
+      <div class="catalog-empty" id="seriesCatalogEmpty" style="display: none">
+        <p>No se encontraron series</p>
+      </div>
+    </div>
+
+    <!-- Reproductor de Video -->
+    <div class="video-player" id="videoPlayer">
+      <div class="video-container">
+        <button class="video-close" onclick="closeVideo()">×</button>
+
+        <video id="mainVideo" controls>
+          <source id="videoSource" src="" type="video/mp4" />
+          Tu navegador no soporta video HTML5.
+        </video>
+
+        <div class="video-info" id="videoInfo">
+          <h2 id="videoTitle">Título de la película</h2>
+          <p id="videoDescription">Descripción de la película</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL SELECTOR DE TEMPORADAS -->
+    <div class="modal" id="seriesPlayerModal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeSeriesPlayer()">×</button>
+        <h2 class="modal-title" id="seriesPlayerTitle">
+          Selecciona una temporada
+        </h2>
+
+        <div class="seasons-selector">
+          <div id="seasonsButtonsContainer"></div>
+        </div>
+
+        <div
+          class="episodes-container"
+          id="episodesContainer"
+          style="display: none"
+        >
+          <h3 id="seasonTitle">Temporada 1</h3>
+          <div class="episodes-list" id="episodesList"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL PARA REPRODUCIR CAPÍTULO -->
+    <div class="modal" id="seriesVideoPlayer">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeSeriesVideo()">×</button>
+
+        <div class="video-container-series">
+          <video id="seriesVideo" controls>
+            <source id="seriesVideoSource" src="" type="video/mp4" />
+            Tu navegador no soporta video HTML5.
+          </video>
+        </div>
+
+        <div class="video-info-series">
+          <h2 id="episodeTitle">Título del Capítulo</h2>
+          <p id="episodeDescription">Descripción del capítulo</p>
+          <div class="episode-meta">
+            <span id="episodeDuration">Duración: 45 min</span>
+            <span id="episodeNumber">Capítulo 1</span>
+          </div>
+        </div>
+
+        <div class="episodes-nav">
+          <button class="btn-prev" onclick="playPreviousEpisode()">
+            ← Anterior
+          </button>
+          <button class="btn-next" onclick="playNextEpisode()">
+            Siguiente →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.sessionData = <%- JSON.stringify(datosSesion) %>;
+    </script>
+    <script src="/js/homefuncionalidad.js" defer></script>
+  </body>
+</html>

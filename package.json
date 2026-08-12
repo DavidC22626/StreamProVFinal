@@ -1,0 +1,24 @@
+{
+  "name": "streampro",
+  "version": "1.0.0",
+  "description": "Proyecto de Analisis y desarrollo de software SENA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "David Caicedo",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "mercadopago": "^2.12.0",
+    "mysql2": "^3.15.3",
+    "node": "^22.21.0",
+    "nodemailer": "^8.0.5",
+    "uuid": "^13.0.0"
+  }
+}
